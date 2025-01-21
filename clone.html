@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Youtupe(fake)</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    
+    
+<style>
+
+
+    p{
+        font-family: Roboto,arial;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .thumbnails {
+        width: 100%;
+        
+    }
+
+
+
+    .video-title {
+        margin-top: 0;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        margin-bottom: 12px;
+    }
+
+    .video-auth,.video-stats {
+       display:block;
+       font-size: 12px;
+       color: rgb(96,96, 96);
+
+    }
+
+
+
+
+    .info-grid{
+        display: grid;
+        grid-template-columns: 50px 1fr;
+    }
+
+
+
+    .channel-icon {
+        width: 36px;
+        border-radius: 50px;
+    }
+
+    .row {
+        margin-bottom: 12px;
+        position: relative;
+    }
+
+    .video-stats{
+        font-size: 12px
+        
+    }
+
+    .video-auth{
+margin-bottom: 6px
+    }
+
+    .vids-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        column-gap: 16px;
+        row-gap: 36px;
+    }
+
+
+
+    @media(max-width:900px){
+        .vids-grid{
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media(min-width:901px) and (max-width:1300px){
+        .vids-grid{
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+
+    @media(max-width:1400){
+        .vids-grid{
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        }
+    }
+
+
+
+
+
+    }
+
+
+
+    
+    .header{
+        height: 55px;
+
+        display: flex;
+
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(233, 233, 233);
+        z-index: 50;
+
+
+
+
+
+    }
+
+    .left-sec{
+        align-items: center;
+        display: flex;
+    }
+
+
+    .middle-sec{
+        flex: 1;
+        margin-left: 70px;
+        margin-right: 35px;
+        max-width: 500px;
+        display: flex;
+        align-items: center;
+    }
+
+    .search-button{
+        height: 40px;
+        width: 70px;       
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(182, 182, 182) ;
+        margin-left: -20px;
+        border-left: 0px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        background-color: rgb(240, 240, 240);
+
+        
+        cursor: pointer;
+        
+       
+
+    }   
+
+
+    .search-button, .mic{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    .search-button:hover .tip-1,
+    .mic:hover .tip-1{
+        opacity: 1;
+
+    }
+
+
+    .search-button .tip-1,
+    .mic .tip-1{
+        font-family: Roboto,arial;
+        position: absolute;
+        bottom: -30px;
+        opacity: 0;
+        transition: opacity 0.15s;
+        pointer-events:none ;
+        white-space: nowrap;
+
+
+
+
+        background-color: lightgray;
+        color: rgb(3, 3, 3);
+        padding-right: 8px;
+        padding-left: 8px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        border-radius: 4px;
+        font-size: 12px
+        
+        
+    
+
+
+
+    }
+
+
+    .mic{
+        height: 40px;
+        width: 40px;
+        margin-left: 12px;
+        border-radius: 20px;
+        border: none;
+        position: relative;
+        cursor: pointer;
+
+        
+
+}
+
+    .mic-svg{
+        height: 20px;
+       
+    }
+
+    .srch-icon{
+        height: 30px;
+       
+
+    }
+
+
+
+
+
+    .right-sec{
+        width: 200px;
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+    }
+
+    .sign-in{
+        margin-left: 15px;
+        padding-left: 8px;
+    }
+
+    .settings{
+        margin-left: 45px;
+        margin-top: 2px;
+        padding-left: 4px;
+    }
+
+
+    .yt-icon{
+        height: 100px;
+    }
+
+
+    .ham-icon{
+        height: 30px;
+        margin-left: 20px;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+
+    .search-bar{
+        flex: 1;
+        height: 36px;
+        font-size: 16px;
+        padding-left: 10px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(182, 182, 182);
+        box-shadow: inset 1px 2px 5px rgba(0, 0, 0, 0.10);
+        border-radius: 25px;
+        width: 0;
+    }
+
+    .search-bar::placeholder{
+        font-family: Roboto,arial;
+        font-size: 16px;
+    }
+
+
+
+    .side-bar{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        top: 55px;
+        background-color: white;
+        width: 70px;
+        z-index: 60;
+        cursor: pointer;
+    }
+
+
+
+    .side-link{
+        height: 75px;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 14px;
+
+
+
+
+    }
+
+
+
+    .settings{
+        cursor: pointer;
+
+    }
+
+
+
+
+
+
+    .side-img{
+        height: 60px;
+
+
+    }
+
+    .side-img-2{
+
+        height: 25px;
+        margin-bottom:7px;
+
+
+    }
+
+
+
+
+    .side-img-3{
+        height: 25px;
+        margin-bottom: 7px;
+
+
+
+
+
+    }
+
+
+
+
+    .side-img-4{
+        height: 25px;
+        margin-bottom: 7px;
+
+    }
+
+
+    .side-link div{
+        font-family: Roboto,arial;
+        font-size: 11px;
+    }
+
+
+
+
+
+
+    .side-link:hover{
+        background-color: rgb(233, 233, 233);
+
+    }
+
+
+    .vid-time{
+        font-family: Roboto,arial;
+        font-size: 12px;
+        font-weight: 500;
+        background-color: rgba(0, 0, 0,0.50);
+        color: white;
+        position: absolute;
+        bottom: 8px;
+        right: 5px;
+        border-radius: 4px;
+        padding-left: 3px;
+        padding-right: 3px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+
+
+
+    
+    }
+    
+
+    
+
+</style>
+    </head>
+    <body style="
+
+    padding-top: 80px;
+    margin: 0;
+    height: 3000px;
+    padding-left: 80px;
+    padding-right: 24px;
+    background-color: rgb(245, 245, 245);
+
+
+">
+        <div class="header">
+           
+            <div class="left-sec">
+                <img class="ham-icon" src="yt icons-fake/hamburger-menu-icon-svg-17.jpg">
+                <img class="yt-icon" src="yt icons-fake/youtube-logo-icon.webp">
+            </div>
+            
+            <div class="middle-sec">
+                <input class="search-bar" type="text" placeholder="search">
+                <button class="search-button">
+                    <img class="srch-icon" src="yt icons-fake/free-search-icon-download-in-svg-png-gif-file-formats--zoom-logo-find-magnifier-user-interface-pack-icons-1604561.webp">
+                    <div class="tip-1">Search</div>
+                </button>
+                <button class="mic">
+                    <svg class="mic-svg" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82.05 122.88"><title>mic-microphone</title><path d="M59.89,20.83V52.3c0,27-37.73,27-37.73,0V20.83c0-27.77,37.73-27.77,37.73,0Zm-14.18,76V118.2a4.69,4.69,0,0,1-9.37,0V96.78a40.71,40.71,0,0,1-12.45-3.51A41.63,41.63,0,0,1,12.05,85L12,84.91A41.31,41.31,0,0,1,3.12,71.68,40.73,40.73,0,0,1,0,56a4.67,4.67,0,0,1,8-3.31l.1.1A4.68,4.68,0,0,1,9.37,56a31.27,31.27,0,0,0,2.4,12.06A32,32,0,0,0,29,85.28a31.41,31.41,0,0,0,24.13,0,31.89,31.89,0,0,0,10.29-6.9l.08-.07a32,32,0,0,0,6.82-10.22A31.27,31.27,0,0,0,72.68,56a4.69,4.69,0,0,1,9.37,0,40.65,40.65,0,0,1-3.12,15.65A41.45,41.45,0,0,1,70,85l-.09.08a41.34,41.34,0,0,1-11.75,8.18,40.86,40.86,0,0,1-12.46,3.51Z"/></svg>
+                    <div class="tip-1">Search with thy voice</div>
+                </button>
+            </div>
+            <div class="right-sec">
+                <img class="settings" src="yt icons-fake/Screenshot 2025-01-20 180318.png">
+                <img class="sign-in" src="yt icons-fake/Screenshot 2025-01-20 180043.png">
+            </div>
+            
+        </div>
+
+
+        <div class="side-bar">
+            <div class="side-link">
+                <img class="side-img" src="yt icons-fake/icon-home-10.jpg">
+                <div>Home</div>
+            </div>
+            <div class="side-link">
+                <img class="side-img-2" src="yt icons-fake/YouTube_Shorts_29.png">
+                <div>Shorts</div>
+            </div>
+            <div class="side-link">
+                <img class="side-img-3" src="yt icons-fake/youtube_subscription_icon_136007.png">
+                <div>Subscriptions</div>
+            </div>
+            <div class="side-link">
+                <img class="side-img-4" src="yt icons-fake/history-icon-256x256-o24qa6j4.png">
+                <div>History</div>
+            </div>
+        </div>
+        
+        <div class="vids-grid">
+            <div class="video-preview">
+                <div class="row">
+                    <a href=https://youtu.be/yTCtkzspeyI?si=I1R3okAs0BiHwGbM>
+                        <img class="thumbnails" src="images/hqdefault.avif">
+                    </a> 
+                   
+                    <div class="vid-time">41:57</div>
+                </div>
+                <div class="info-grid">
+                    <div class="channel-pic">
+                            <img class="channel-icon" src="icons/unnamed.jpg">
+                    </div>
+                    <div class="info">
+                        <p class="video-title">Elden Ring First Person Shooter</p>
+                        <p class="video-auth">penguinz0</p>
+                        <p class="video-stats">2.2M  .  3 weeks ago</p>
+                    </div>
+                </div>
+            </div>
+    
+    
+            <div class="video-preview">
+                <div class="row">
+                    <a href=https://youtu.be/4RdFb_tucc4?si=bT0VzekhaOErYO8B>
+                        <img class="thumbnails" src="images/hq720.avif">
+                    </a> 
+                   
+                    <div class="vid-time">48:03</div>
+                </div>
+                <div class="info-grid">
+                    <div class="channel-pic">
+                        <img class="channel-icon" src="icons/unnamed (1).jpg">
+                    </div>
+                    <div class="info">
+                        <p class="video-title">Can You Beat Dark Souls... N͔͔̥̺̞̿͊̇o͙͙̙̘̙ͤͫ͞ṛ̣̬̫̍͌ͩ͟m̰̰̹͚̙̂ͦ͗͠a͔͔̜̗̦ͩ̅̎l͖͖̰̝ͭ̀͘l͖͖̰̝ͭ̀͘y͙͙̪̰ͫ͌́</p>
+                        <p class="video-auth">Baron's Castle</p>
+                        <p class="video-stats">522K views  .  3 weeks ago</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="video-preview">
+                <div class="row">
+                    <a href=https://youtu.be/Jjcc42M1J5A?si=n_X3pj9yjd48zH5Y>
+                        <img class="thumbnails" src="images/hqdefault (1).avif">
+                    </a> 
+                    
+                    <div class="vid-time">4:18</div>
+                </div>
+                <div class="info-grid">
+                    <div class="channel-pic">
+                        <img class="channel-icon" src="icons/channels4_profile.jpg">
+                    </div>
+                    <div class="info">
+                        <p class="video-title">die in a fire [slowed]</p>
+                        <p class="video-auth">зип зип зип</p>
+                        <p class="video-stats">957K views  .  2 years ago</p>
+                    </div>
+                </div>
+            </div>
+    
+    
+            <div class="video-preview">
+                <div class="row">
+                    <a href=https://youtu.be/2kr7KDCsIws?si=oco76KdYfPWS2NRL>
+                        <img class="thumbnails" src="images/hq7209.avif">
+                    </a> 
+                    
+                    <div class="vid-time">15:31</div>
+                </div>
+                <div class="info-grid">
+                    <div class="channel-pic">
+                        <img class="channel-icon" src="icons/2.jpg">
+                    </div>
+                    <div class="info">
+                        <p class="video-title">HAPPY SOULS</p>
+                        <p class="video-auth">Jameserton</p>
+                        <p class="video-stats">32M views  .  8 years ago</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="video-preview">
+                <div class="row">
+                    <a href=https://youtu.be/govvRtEya_s?si=aqPrRFXTqaQHql9C>
+                        <img class="thumbnails" src="images/r.avif">
+                    </a> 
+                    
+                    <div class="vid-time">0:28</div>
+                </div>
+                <div class="info-grid">
+                    <div class="channel-pic">
+                        <img class="channel-icon" src="icons/h.jpg">
+                    </div>
+                    <div class="info">
+                        <p class="video-title">When 12am Hits</p>
+                        <p class="video-auth">LayzuhCatz</p>
+                        <p class="video-stats">647K views  .  2 weeks ago</p>
+                    </div>
+                </div>
+            </div>
+    
+    
+    <div class="video-preview">
+                <div class="row">
+                    <a href=https://youtu.be/asTl_oPEi_k?si=OTMt-5YYaW51gIpL>
+                        <img class="thumbnails" src="images/yy.avif">
+                    </a> 
+                    
+                    <div class="vid-time">1:34</div>
+                </div>
+                <div class="info-grid">
+                    <div class="channel-pic">
+                        <img class="channel-icon" src="icons/dbag.jpg">
+                        <div class="vid-time"></div>
+                    </div>
+                    <div class="info">
+                        <p class="video-title">Helltaker x Elden Ring</p>
+                        <p class="video-auth">Let me solo her</p>
+                        <p class="video-stats">158K views  .  2 weeks ago</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="video-preview">
+                <div class="row">
+                    <a href=https://youtu.be/x_QmvZRS85U?si=ajbaXjEc3wkB-DmG>
+                        <img class="thumbnails" src="images/4256624.avif">
+                    </a>
+                   
+                    <div class="vid-time">41:57</div>
+                </div>
+                <div class="info-grid">
+                    <div class="channel-pic">
+                            <img class="channel-icon" src="icons/55.jpg">
+                    </div>
+                    <div class="info">
+                        <p class="video-title">How to Reply to Negative Comments (90s Tutorial)</p>
+                        <p class="video-auth">SkyCorp Home Video</p>
+                        <p class="video-stats">2.9M views . 1 year ago</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="video-preview">
+                <div class="row">
+                    <a href=https://youtu.be/xWUQ40XT0jI?si=-kWIphM54bD-8oWD>
+                        <img class="thumbnails" src="images/hq720543.avif">
+                    </a>
+                   
+                    <div class="vid-time">41:57</div>
+                </div>
+                <div class="info-grid">
+                    <div class="channel-pic">
+                            <img class="channel-icon" src="icons/burialpeaks.jpg">
+                    </div>
+                    <div class="info">
+                        <p class="video-title">brøther, I cräve the forbidden lämp</p>
+                        <p class="video-auth">burialgoods</p>
+                        <p class="video-stats">987K views  .  2 months ago</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="video-preview">
+                <div class="row">
+                    <a href=https://youtu.be/RMNjO-rFGX4?si=-x68D1tANH566fzF>
+                        <img class="thumbnails" src="images/hq720hh.avif">
+                    </a>
+                   
+                    <div class="vid-time">41:57</div>
+                </div>
+                <div class="info-grid">
+                    <div class="channel-pic">
+                            <img class="channel-icon" src="icons/egwge.jpg">
+                    </div>
+                    <div class="info">
+                        <p class="video-title">"just let it happen"</p>
+                        <p class="video-auth">KnubNight</p>
+                        <p class="video-stats">1.7M views .   5 months ago</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="video-preview">
+                <div class="row">
+                    <a href=https://youtu.be/nLHRZFPm7c0?si=Cs4UYgt0n-sVRbzc>
+                        <img class="thumbnails" src="images/SGDH.avif">
+                    </a>
+                   
+                    <div class="vid-time">41:57</div>
+                </div>
+                <div class="info-grid">
+                    <div class="channel-pic">
+                            <img class="channel-icon" src="icons/RJERJ.jpg">
+                    </div>
+                    <div class="info">
+                        <p class="video-title">P A I N T I T B L A C K</p>
+                        <p class="video-auth">franklyterrible</p>
+                        <p class="video-stats">5.9M views  .   2years ago</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="video-preview">
+                <div class="row">
+                    <a href=https://youtu.be/UKrA8hv8dvE?si=jXehrAc4ER5-YV57>
+                        <img class="thumbnails" src="images/gsssdg.avif">
+                    </a>
+                   
+                    <div class="vid-time">41:57</div>
+                </div>
+                <div class="info-grid">
+                    <div class="channel-pic">
+                            <img class="channel-icon" src="icons/hrhje.jpg">
+                    </div>
+                    <div class="info">
+                        <p class="video-title">Soviet Union edit, but its fits the beat perfectly (full version)</p>
+                        <p class="video-auth">Fix_37</p>
+                        <p class="video-stats">27M views  .  2 years ago</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="video-preview">
+                <div class="row">
+                    <a href=https://youtu.be/YREhVveHq9k?si=Eh_wpSoDZW75UMWF>
+                        <img class="thumbnails" src="images/asfqwf.avif">
+                    </a>
+                   
+                    <div class="vid-time">41:57</div>
+                </div>
+                <div class="info-grid">
+                    <div class="channel-pic">
+                            <img class="channel-icon" src="icons/faefawawf.jpg">
+                    </div>
+                    <div class="info">
+                        <p class="video-title">Five Nights at Freddy's 4 Song - I Got No Time (FNAF4) - The Living Tombstone</p>
+                        <p class="video-auth">The Living Tombstone</p>
+                        <p class="video-stats">160M views  .  8 years ago </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="video-preview">
+                <div class="row">
+                    <a href=https://youtu.be/SkYl_AH-qyk?si=vI07WffD5Iqtf0RJ>
+                        <img class="thumbnails" src="images/ghsyhswehhweh.avif">
+                    </a>
+                   
+                    <div class="vid-time">41:57</div>
+                </div>
+                <div class="info-grid">
+                    <div class="channel-pic">
+                            <img class="channel-icon" src="icons/rqwrqrwrrrrr.jpg">
+                    </div>
+                    <div class="info">
+                        <p class="video-title">How to Spot a Communist</p>
+                        <p class="video-auth">CONELRAD6401240</p>
+                        <p class="video-stats">3.4M views  .  14 years ago</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="video-preview">
+                <div class="row">
+                    <a href=https://youtu.be/cHu3g_6VY7c?si=qLK1kF7JT9ggM4qE>
+                        <img class="thumbnails" src="images/DEXXX.avif">
+                    </a>
+                   
+                    <div class="vid-time">41:57</div>
+                </div>
+                <div class="info-grid">
+                    <div class="channel-pic">
+                            <img class="channel-icon" src="icons/daaa.jpg">
+                    </div>
+                    <div class="info">
+                        <p class="video-title">Dark Souls Remastered "DEX" Guide</p>
+                        <p class="video-auth">Be And</p>
+                        <p class="video-stats">520K views  .  1 year ago</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="video-preview">
+                <div class="row">
+                    <a href=https://youtu.be/84q83skr_tk?si=dmjC05bc962jdXDD>
+                        <img class="thumbnails" src="images/jwehjer.avif">
+                    </a>
+                   
+                    <div class="vid-time">41:57</div>
+                </div>
+                <div class="info-grid">
+                    <div class="channel-pic">
+                            <img class="channel-icon" src="icons/channels4_profilejueueu.jpg">
+                    </div>
+                    <div class="info">
+                        <p class="video-title">Hotline Miami Soundtrack ~ Hydrogen</p>
+                        <p class="video-auth">Zektrum</p>
+                        <p class="video-stats">2.4M views .  7 years ago</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+       
+        
+
+
+
+
+    </body>
+
+
+</html>
